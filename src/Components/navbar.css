@@ -1,0 +1,33 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    background-color: #9370DB;
+}
+
+div{
+    text-align: center;
+}
+
+.nabImg {
+    display: flex;
+    height: 50px;
+}
+
+
+.navLinks {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.navButton {
+    height: 50px;
+    margin-top: 10px;
+    background-color: black;
+    width: 50px;
+    border: solid 1px transparent;
+    border-radius: 5px;
+}
+
+
