@@ -6,25 +6,25 @@ import { createContext, useContext, useState, useEffect, useReducer } from "reac
 export const ContextGlobal = createContext(undefined);
 
 const themes = {
-  dark: {
-    theme: true,
-    backgroundColor: "black",
-    color: "white"
-  },
-  light: {
-    theme: false,
-    backgroundColor: "white",
-    color: "black"
-  }
+    dark: {
+      theme: false,
+      bgColor: "black",
+      color: "white"
+    },
+    light: {
+      theme: true,
+      bgColor: "white",
+      color: "black"
+    }
 }
 
 const initialThemeState = themes.light
 
 const themeReducer = (state, action) => {
   switch(action.type){
-    case 'CHANGE_DARK':
+    case 'SWITCH_DARK':
       return themes.dark
-    case 'CHANGE_LIGHT':
+    case 'SWITCH_LIGHT':
       return themes.light
     default:
       throw new Error();
@@ -37,6 +37,8 @@ const favReducer = (state, action) => {
   switch(action.type){
     case "ADD_FAV":
       return [...state, action.payload]
+    case "DELETE_FAV":
+      return state.filter(user => user.id !== action.payload.id)
     default:
        throw new Error();
   }

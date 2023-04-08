@@ -10,11 +10,10 @@ const Navbar = () => {
 
   const changeTheme = () => {
     if(themeState.theme){
-      themeDispatch({type: "CHANGE_DARK"})
+      themeDispatch({type: "SWITCH_DARK"})
     } else{
-      themeDispatch({type: "CHANGE_LIGHT"})
-    }
-    
+      themeDispatch({type: "SWITCH_LIGHT"})
+    } 
   }
 
   return (
