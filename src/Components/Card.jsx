@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { useContextGlobal } from "./utils/global.context";
 
 const Card = ({ name, username, id }) => {
-  const {favDispatch} = useContextGlobal();
-  const {dentists} = useContextGlobal();
+  const {favDispatch, dentists, favState} = useContextGlobal();
 
   const addFav = () => {
-    console.log(dentists);
-    favDispatch({type: "ADD_FAV", payload: dentists})
+    if(!favState.find(user => user.id === id)){
+      let dentist = dentists.find(user => user.id === id)
+      favDispatch({type: "ADD_FAV", payload: dentist})
+    }
   };
 
   return (

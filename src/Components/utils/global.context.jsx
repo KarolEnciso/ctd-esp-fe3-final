@@ -50,6 +50,7 @@ export const ContextProvider = ({ children }) => {
   const URL = "https://jsonplaceholder.typicode.com/users";
   const [themeState, themeDispatch] = useReducer(themeReducer, initialThemeState);
   const [favState, favDispatch] = useReducer(favReducer, initialFavState)
+  console.log(favState);
 
   useEffect(() => {
     localStorage.setItem("favs", JSON.stringify(favState))

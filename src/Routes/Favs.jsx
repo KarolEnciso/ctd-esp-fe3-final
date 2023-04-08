@@ -14,11 +14,6 @@ const Favs = () => {
     <>
       <h1>Dentists Favs</h1>
       <div className="card-grid">
-        {/* {favState.map(dentists =>(
-          <div>
-            <h3>{dentists.name}</h3>
-          </div>
-        ))} */}
         {favState.map(dentist => <Card key={dentist.id} id={dentist.id} name={dentist.name} username={dentist.username}/>)}
         {/* Deberan renderizar una Card por cada uno de ellos */}
       </div>
