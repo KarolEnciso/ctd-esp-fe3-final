@@ -31,6 +31,17 @@ const themeReducer = (state, action) => {
   }
 }
 
+const initialFavState = []
+
+const favReducer = (state, action) => {
+  switch(action.type){
+    case "ADD_FAV":
+      return [...state, action.payload]
+    default:
+       throw new Error();
+  }
+}
+
 
 export const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
@@ -38,6 +49,12 @@ export const ContextProvider = ({ children }) => {
   const [dentists, setDentistList] = useState([]);
   const URL = "https://jsonplaceholder.typicode.com/users";
   const [themeState, themeDispatch] = useReducer(themeReducer, initialThemeState);
+  const [favState, favDispatch] = useReducer(favReducer, initialFavState)
+
+  useEffect(() => {
+    localStorage.setItem("favs", JSON.stringify(favState))
+  }, [favState])
+  
  
   useEffect(() => {
     const fetchDentist = async () => {
@@ -49,7 +66,7 @@ export const ContextProvider = ({ children }) => {
   },[])
 
   return (
-    <ContextGlobal.Provider value={{dentists, setDentistList, themeState, themeDispatch}}>
+    <ContextGlobal.Provider value={{dentists, setDentistList, themeState, themeDispatch, favState, favDispatch}}>
       {children}
     </ContextGlobal.Provider>
   );

@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
-// import { useContextGlobal } from "./utils/global.context";
+import { useContextGlobal } from "./utils/global.context";
 
 const Card = ({ name, username, id }) => {
-
-  // const{dentist} = useContextGlobal();
+  const {favDispatch} = useContextGlobal();
+  const {dentists} = useContextGlobal();
 
   const addFav = () => {
-    // localStorage.setItem("favs", JSON.stringify(dentist))
+    console.log(dentists);
+    favDispatch({type: "ADD_FAV", payload: dentists})
   };
 
   return (
     <div className="card">
         {/* En cada card deberan mostrar en name - username y el id */}
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-        <Link to={`/details/:${id}`}>
+        <Link to={"/details/" + id}>
           <img src="./images/doctor.jpg" alt="dentistImage"/>
           <h3>{id}</h3>
           <h3>{name}</h3>
