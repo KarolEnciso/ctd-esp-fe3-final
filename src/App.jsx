@@ -14,7 +14,7 @@ function App() {
   const {themeState} = useContextGlobal()
 
   return (
-      <div className="App" styles={{backgroundColor: themeState.backgroundColor, color: themeState.color}}>
+      <div className="App" style={{backgroundColor: themeState.bgColor, color: themeState.color}}>
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home/>}/>
