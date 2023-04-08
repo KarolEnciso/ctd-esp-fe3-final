@@ -17,6 +17,7 @@ code {
   border: none;
   width: 100%;
   cursor: pointer;
+  margin-bottom: 8px;
 }
 
 h1{
@@ -41,15 +42,21 @@ a:hover{
 } 
 
 footer {
+  background-color: #9370DB;
   display: flex;
   justify-content: center;
   text-align: center;
   padding: 2rem;
   position: relative;
   bottom: 0;
-  width: 90%;
+  width: auto;
   height: 40px;
   margin-top: 2rem;
+}
+
+.socialmediaImg {
+  width: 35px;
+  padding: 5px;
 }
 
 footer > img{
@@ -66,8 +73,21 @@ form{
   flex-direction: column;
   justify-content: space-around;
   width: 300px;
-  height: 100px;
+  height: 200px;
   margin: 0 auto;
+}
+
+form > input {
+  height: 50px;
+  margin: 5px;
+  border: 2px solid #A9A9A9;
+  border-radius: 8px;
+}
+
+form > button {
+  height: 50px;
+  border-radius: 8px;
+  margin: 5px;
 }
 
 .card{
@@ -78,6 +98,7 @@ form{
   width: 200px;
   padding: 0.5rem 0.5rem 0 0.5rem;
   border: 0.5px solid rgb(136, 136, 136);
+  border-radius: 8px;
 }
 
 .card:hover{
@@ -114,9 +135,9 @@ tr:nth-child(even) {
 }
 
 .dark{
-  background-color: #12121296;
+  background-color: #292929;
   color: white;
 }
 .dark > a {
-  color: white;
+  color: black;
 }

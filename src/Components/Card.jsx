@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useContextGlobal } from "./utils/global.context";
 
+
 const Card = ({ name, username, id }) => {
-  const {favDispatch, dentists, favState} = useContextGlobal();
+  const {favDispatch, dentists, favState, themeState} = useContextGlobal();
 
   const addFav = () => {
     let dentist = dentists.find(user => user.id === id)
@@ -14,7 +15,7 @@ const Card = ({ name, username, id }) => {
   };
 
   return (
-    <div className="card">
+    <div className="card" style={{color: themeState.color, backgroundColor: themeState.bgColor}}>
         {/* En cada card deberan mostrar en name - username y el id */}
         {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
         <Link to={"/details/" + id}>
